@@ -6,7 +6,7 @@ class GprData{
     let dataStr = JSON.stringify(data);
     store.write('gprData',dataStr);
   }
-  
+
   loadData(){
     let dataStr = store.read('gprData');
     return JSON.parse(dataStr);

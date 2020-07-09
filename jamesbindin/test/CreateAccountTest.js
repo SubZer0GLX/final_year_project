@@ -10,12 +10,12 @@ let expect = chai.expect;
 //all users with the username: test1 and test2 need to be removed from the database before tests
 //are carried out.
 
-//CreateAccount tests: tests creating a new user and attempting to create account with
+//CreateAccount tests: tests creating a new user and attempting to create account with 
 //user that already exists.
  describe('CreateAccount Unit Test', function() {
   it('CreateAccount, Testing New User:', async function() {
     let user = new User();
-    let userDetails = user.makeUser("test1", "test1", "test1", "test1", "test1");
+    let userDetails = user.makeUser("test1", "test1", "test1", "test1", "test1"); 
     user.setUser(userDetails);
     let requestContext = new RequestContext("createAccount")
     let response = await requestContext.contextInterface()
@@ -25,7 +25,7 @@ let expect = chai.expect;
 
   it('CreateAccount, Testing Existing User:', async function() {
     let user = new User();
-    let userDetails = user.makeUser("test1", "test1", "test1", "test1", "test1");
+    let userDetails = user.makeUser("test1", "test1", "test1", "test1", "test1"); 
     user.setUser(userDetails);
     let requestContext = new RequestContext("createAccount")
     let response = await requestContext.contextInterface()
@@ -38,7 +38,7 @@ let expect = chai.expect;
  describe('Login Unit Test', function() {
   it('Login, Testing Previously Created User:', async function() {
     let user = new User();
-    let userDetails = user.makeUser("test1", "test1", "test1", "test1", "test1");
+    let userDetails = user.makeUser("test1", "test1", "test1", "test1", "test1"); 
     user.setUser(userDetails);
     let requestContext = new RequestContext("login")
     let response = await requestContext.contextInterface()
@@ -48,7 +48,7 @@ let expect = chai.expect;
 
   it('Login Testing Not Existing User:', async function() {
     let user = new User();
-    let userDetails = user.makeUser("test2", "test2", "test2", "test2", "test2");
+    let userDetails = user.makeUser("test2", "test2", "test2", "test2", "test2"); 
     user.setUser(userDetails);
     let requestContext = new RequestContext("login")
     let response = await requestContext.contextInterface()
@@ -60,7 +60,7 @@ let expect = chai.expect;
  describe('UserGet Unit Test', function() {
   it('userGet, Testing Previously Created User:', async function() {
     let user = new User();
-    let userDetails = user.makeUser("test1", "test1", "test1", "test1", "test1");
+    let userDetails = user.makeUser("test1", "test1", "test1", "test1", "test1"); 
     user.setUser(userDetails);
     let requestContext = new RequestContext("userGet")
     let response = await requestContext.contextInterface()
@@ -70,7 +70,7 @@ let expect = chai.expect;
 
   it('userGet, Testing Not Existing User:', async function() {
     let user = new User();
-    let userDetails = user.makeUser("test2", "test2", "test2", "test2", "test2");
+    let userDetails = user.makeUser("test2", "test2", "test2", "test2", "test2"); 
     user.setUser(userDetails);
     let requestContext = new RequestContext("userGet")
     let response = await requestContext.contextInterface()
@@ -82,7 +82,7 @@ let expect = chai.expect;
  describe('UpdateUser Unit Test', function() {
   it('Login, Testing Previously Created User:', async function() {
     let user = new User();
-    let userDetails = user.makeUser("test1", "newData", "newData", "newData", "test1");
+    let userDetails = user.makeUser("test1", "newData", "newData", "newData", "test1"); 
     user.setUser(userDetails);
     let requestContext = new RequestContext("updateUser")
     let response = await requestContext.contextInterface()
@@ -91,7 +91,7 @@ let expect = chai.expect;
 
   it('UpdateUser, Testing Not Existing User:', async function() {
     let user = new User();
-    let userDetails = user.makeUser("test2", "test2", "test2", "test2", "test2");
+    let userDetails = user.makeUser("test2", "test2", "test2", "test2", "test2"); 
     user.setUser(userDetails);
     let requestContext = new RequestContext("updateUser")
     let response = await requestContext.contextInterface()

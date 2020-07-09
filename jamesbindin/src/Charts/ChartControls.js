@@ -21,7 +21,6 @@ constructor(){
   addTimeFrameButtons(controlsDiv, chartSvg, width, height){
 
     let buttons = controlsDiv.selectAll(".tfButton");
-
     buttons.attr("class","btn btn-sm btn-secondary")
       .attr("type", "button")
       .attr("value", (d, i) => {
@@ -34,12 +33,13 @@ constructor(){
 
   addChangeCurrency(controlsDiv){
     let data = ["EUR_USD", "USD_JPY", "GBP_USD", "USD_CHF"]
-
-    controlsDiv.append("div")
+    let select = controlsDiv.append("div")
       .style("float", "right")
-      .append("select")
-      .style("padding","0px")
-      .attr("class", "custom-select")
+      .append("select");
+      select
+      .style("padding","0px 0px 0px 10px")
+      .style("border", "none")
+      .style("border-radius", "10px")
       .style("width", "100px")
       .style("height", "26px")
       .selectAll("option")
@@ -48,9 +48,12 @@ constructor(){
       .text((d) => {
         return d;
       })
-      .on("click", (d) => {
-        this.currentChartInfo.saveCurrentCurrency(d);
+      select.on("change", (d) => {
+        let newData = select.property('value')
+        this.currentChartInfo.saveCurrentCurrency(newData);
       })
+
+
   }
 
   addBuyButton(controlsDiv, chartSvg, width, height){

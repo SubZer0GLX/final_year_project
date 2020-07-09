@@ -35,7 +35,7 @@ class NavbarComponent extends React.Component{
     this.setState({alert:''});
   }
 
-  updateState(data){  
+  updateState(data){
     this.setState(data);
   }
 
@@ -76,11 +76,11 @@ class NavbarComponent extends React.Component{
   render(){
     return(
       <>
-        <Navbar bg = "primary" variant = "dark" expand = "lg" collapseOnSelect > <Navbar.Brand >Forex Trading</Navbar.Brand>
-        {this.showUserName()}
+  <Navbar bg = "primary" variant = "dark" expand = "sm" collapseOnSelect >
         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+        <Navbar.Collapse >
         <Nav onSelect={k => this.handleNavigation(k)}>
+        <Navbar.Brand className="navbar-brand" href="/">Forex Trading</Navbar.Brand>
           <Nav.Item>
             <Nav.Link eventKey="Chart">View Chart</Nav.Link>
           </Nav.Item>
@@ -100,6 +100,9 @@ class NavbarComponent extends React.Component{
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
+      <Nav className="justify-content-end">
+        {this.showUserName()}
+      </Nav>
     </Navbar>
 
     <div className="jumbotron" style={{padding:"1%", margin:"0px", border:"0px"}} >

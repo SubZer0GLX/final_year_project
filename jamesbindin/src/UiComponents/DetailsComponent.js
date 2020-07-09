@@ -28,13 +28,13 @@ class DetailsComponent extends React.Component{
       let currentUser = await requestContext.contextInterface();
       this.processUser(currentUser);
     }
-  }	
-  
-  //Adds user details to the details page	
+  }
+
+  //Adds user details to the details page
   processUser(currentUser){
     this.setState({currentUser:currentUser});
   }
-  
+
   async handleDelete(event){
     event.preventDefault();
     let user = new User();
@@ -43,11 +43,11 @@ class DetailsComponent extends React.Component{
     user.setUser(this.state);
     let requestContext = new RequestContext("deleteAccount");
     let results = await requestContext.contextInterface();
-    
+
     if(results !== undefined){
       if(results.n >= 1){
         user.clearUser();
-        this.props.updateState({alert: "deleteSuccess"});       
+        this.props.updateState({alert: "deleteSuccess"});
       } else {
         this.props.updateState({alert: "deleteFail"});
       }
@@ -63,11 +63,10 @@ class DetailsComponent extends React.Component{
 
   render(){
     let trades = this.state.currentUser.trades;
-    console.log(trades);
     return(
     <>
      <div style={{paddingLeft:"20%", paddingRight:"20%"}} >
-       <h1 align="center">Account Details</h1> 
+       <h1 align="center">Account Details</h1>
          <Table striped bordered hover>
           <thead>
             <tr>
@@ -98,7 +97,7 @@ class DetailsComponent extends React.Component{
             Delete Account
           </Button>
         </Form>
-        </div> 
+        </div>
       </>
     );
   }

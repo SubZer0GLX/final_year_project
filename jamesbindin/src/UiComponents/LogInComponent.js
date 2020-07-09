@@ -27,7 +27,6 @@ class LogInComponent extends React.Component{
     user.setUser(loginDetails);
     let requestContext = new RequestContext("login");
     let userInfo = await requestContext.contextInterface();
-    console.log(userInfo)
     if(userInfo.userName === loginDetails.userName){
       user.setUser(userInfo)
       this.props.updateState({alert: 'loginSuccess', userName: userInfo.userName});
@@ -48,7 +47,7 @@ class LogInComponent extends React.Component{
   render(){
     return(
       <>
-        <div style={{paddingLeft:"20%", paddingRight:"20%"}}>  
+        <div style={{paddingLeft:"20%", paddingRight:"20%"}}>
           <h1 align="center">Log In</h1>
           <Form onSubmit={this.handleSubmitLogIn}>
             <Form.Group>

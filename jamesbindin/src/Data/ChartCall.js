@@ -4,8 +4,8 @@ import CurrentChartInfo from './CurrentChartInfo'
  class ChartCall {
   constructor() {
     this.chartData = new ChartData();
-    // oanda api token has been blacked out for privacy.
-    this.oandaApiToken = "XXXXXXXXXXXXXXXXXXXXX";
+    // NEED AN OANDA ACCOUNT AND API KEY TO ACCESS DATA
+    this.oandaApiToken = "EMPTY API KEY!!!!!!!";
   }
 
   async getData(timeFrame){

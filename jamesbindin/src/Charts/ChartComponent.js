@@ -55,17 +55,21 @@ async makeChart(){
   await chartTimer.getChartData();
   chartTimer.chartTimer();
   let cData = this.chartData.getCurrencyPairData();
+  await this.gprTimer.getGprData();
   let gprD = this.gprData.loadData();
   let titleDiv = d3.select(this.titleDiv)
   let chartDiv = d3.select(this.chartDiv)
   titleDiv.append("h2")
   .attr("class", "title")
-  .attr("align", "center");
+  .attr("align", "center")
+  .style("margin-bottom", "0")
+
+
+
 
   let controlsDiv = d3.select(this.controlsDiv)
-
+  controlsDiv.style("padding", "10px")
   let tradesDiv = d3.select(this.tradesDiv)
-
   let chartSvg = chartDiv.append("svg")
     .attr("version","1.1")
     .attr("viewBox","0 0 860 280")
